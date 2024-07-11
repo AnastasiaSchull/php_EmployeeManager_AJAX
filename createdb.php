@@ -1,5 +1,5 @@
 <?php
-
+function getDbConnection() {
 $user = "root";
 $pass = "";
 $dbName = "employees";
@@ -16,7 +16,7 @@ $sql = "CREATE DATABASE IF NOT EXISTS $dbName";
 if ($conn->query($sql) === TRUE) {
    // echo "DB created successfully\n";
 } else {
-    echo "Error creating database: " . $conn->error . "\n";
+    //echo "Error creating database: " . $conn->error . "\n";
 }
 
 // выбираем базу данных
@@ -35,9 +35,8 @@ $sql = "CREATE TABLE IF NOT EXISTS Employees (
 if ($conn->query($sql) === TRUE) {
     //echo "Table created successfully\n";
 } else {
-    echo "Error creating table: " . $conn->error . "\n";
+    //echo "Error creating table: " . $conn->error . "\n";
 }
-
-$conn->close();
-
+    return $conn;
+}
 
